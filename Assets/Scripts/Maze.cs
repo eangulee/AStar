@@ -65,7 +65,7 @@ namespace AStar
             OpenList.Add(point);
         }
 
-        //G
+        //g(n)代表你从起始点到下一点的实际距离（制定到下一点的距离的规则）
         private int CalcG(Point start, Point point)
         {
             int G = (Math.Abs(point.X - start.X) + Math.Abs(point.Y - start.Y)) == 2 ? STEP : OBLIQUE;
@@ -73,7 +73,7 @@ namespace AStar
             return G + parentG;
         }
 
-        //H
+        //h(n)是自己设计的函数，可以是到目的地大致的距离
         private int CalcH(Point end, Point point)
         {
             int step = Math.Abs(point.X - end.X) + Math.Abs(point.Y - end.Y);
